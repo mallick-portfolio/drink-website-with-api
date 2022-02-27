@@ -1,9 +1,16 @@
 const error = document.getElementById("error");
 const drinkItems = document.getElementById("drinksItems");
+error.innerHTML = "";
+
 const searchItems = () => {
   const searchInput = document.querySelector(".search-input");
   if (searchInput.value === "") {
-    error.innerHTML = "Please provide your search Item name";
+    drinkItems.innerHTML = "";
+    loader("block");
+    setTimeout(() => {
+      error.innerHTML = "Please provide your search Item name";
+      loader("none");
+    }, 5000);
   } else {
     loadData(searchInput.value);
     searchInput.value = "";
@@ -15,6 +22,7 @@ const loader = (showOrHide) => {
 };
 
 const loadData = (itemName) => {
+  error.innerHTML = "";
   loader("block");
   url = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${itemName}`;
   fetch(url)
@@ -26,7 +34,7 @@ const loadData = (itemName) => {
         setTimeout(() => {
           error.innerHTML = "Not Found";
           loader("none");
-        }, 2000);
+        }, 5000);
       } else {
         loader("block");
         error.innerHTML = "";
@@ -107,5 +115,3 @@ document.querySelector(".search-input").addEventListener("keyup", (event) => {
     document.getElementById("searchBtn").click();
   }
 });
-
-loadData("a");

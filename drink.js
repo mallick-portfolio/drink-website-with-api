@@ -1,4 +1,3 @@
-
 const error = document.getElementById("error");
 const drinkItems = document.getElementById("drinksItems");
 const searchItems = () => {
@@ -107,3 +106,5 @@ document.querySelector(".search-input").addEventListener("keyup", (event) => {
     document.getElementById("searchBtn").click();
   }
 });
+
+loadData("a");

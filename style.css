@@ -19,6 +19,7 @@ section {
   width: 100%;
   position: relative;
   display: flex;
+  margin-top: 40px;
 }
 .search-input {
   width: 100%;

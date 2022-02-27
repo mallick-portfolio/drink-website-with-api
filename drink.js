@@ -15,6 +15,7 @@ const loader = (showOrHide) => {
 };
 
 const loadData = (itemName) => {
+  loader("block");
   url = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${itemName}`;
   fetch(url)
     .then((res) => res.json())
